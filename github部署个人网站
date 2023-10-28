@@ -1,0 +1,9 @@
+要求：
+静态页面的分支必须叫做：gh-pages
+如果希望页面可以通过 xxx.github.io 访问，则需要将库的名字配置为 xxx.github.io
+
+一定要这么写这个分支
+git branch -M gh-pages
+
+要把repository的名字改成xxx.github.io
+等学完前端再说了

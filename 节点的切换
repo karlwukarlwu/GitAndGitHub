@@ -1,0 +1,39 @@
+c1 c2 c3 c4
+    main 分支指向c4
+    HEAD 指向c4
+        可以修改head指向的位置
+            修改完head想要回到原来的版本
+            想指回主要版本只要git switch 分支名就可以了
+
+
+git log 查看所有commit过的版本
+
+不推荐用这个
+git switch 版本号 --detach 切换到那个版本
+c1 c2 c3 c4 c5 c6 c7 c8 c9 c10
+   头指针在c10
+    git switch c5 --detach
+    头指针在c5
+    这种状态我们称为分离头指针（HEAD detached），分离头指针的状态下也可以操作操作代码，
+    但是这些操作不会出现在任何的分支上，所以注意不要再分离头指针的状态下来操作仓库。
+
+推荐用这个
+git switch -c 分支名 版本号  回到当前版本并创建一个新的分支
+    git switch -c new-branch c3d5e3d5e4b869a6a8e9e4ae4c9e4ae4b9c8d5e3
+
+头指针切换回来
+    git switch 分支名
+
+tag的好处就是可以给某个版本打上标签，方便以后查找
+
+git tag
+
+git tag 版本 给当前的版本打标签
+
+git tag 版本 提交id 给指定的版本打标签
+
+git push 远程仓库 标签名
+git push 远程仓库 --tags 推送所有标签
+git tag -d 标签名 # 删除标签
+git push 远程仓库 --delete 标签名 # 删除远程标签
+

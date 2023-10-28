@@ -3,8 +3,84 @@
 重置文件
 git restore <filename> # 恢复文件
 git restore --staged <filename> # 取消暂存状态
-    意思是：取消add的状态，但是不会删除文件
+    意思是：取消文件状态，但是不会修改文件文件
+        git rm file  删除文件
+            Changes to be committed:
+              (use "git restore --staged <file>..." to unstage)
+                    deleted:    playGround
+
+        git restore --staged file  取消删除状态
+              (use "git restore <file>..." to discard changes in working directory)
+                    deleted:    playGround 这个状态被取消了
+
+        git restore file  恢复文件
+            取消了删除状态才能恢复文件
+
 
 删除文件
 git rm <filename> # 删除文件
 git rm <filename> -f # 强制删除文件
+
+重命名文件
+git mv <filename> <newfilename> # 重命名文件
+
+
+git分支
+     git 在存储文件时，每一次代码代码的提（commit）都会创建一个与之对应的节点，
+     就是通过一个一个的节点来记录代码的状态的。
+     节点会构成一个树状结构，树状结构就意味着这个树会存在分支，
+     默认情况下仓库只有一个分支，命名为 master。
+     在使用 git 时，可以创建多个分支，分支与分支之间相互独立，在一个分支上修改代码不会影响其他的分支。
+
+    修改分支的名字
+    git branch -M main
+    # 修改当前的分支的名字的为main
+
+    git branch # 查看当前分支
+    git branch <branch name> # 创建新的分支
+    git branch -d <branch name> # 删除分支
+    git switch <branch name> # 切换分支
+    git switch -c <branch name> # 创建并切换分支
+    git merge <branch name> # 和并分支
+    在开发中，都是在自己的分支上编写代码，代码编写完成后，在将自己的分支合并到主分支中。
+
+    分支合并
+        情况一
+        c1 c2 c3 c4 c5 c6 c7 c8
+            master分支在c5
+            bug分支在c8
+
+            git switch 切换到你的主分支
+            git merge 你要合并的分支
+            git branch -d 删除不要的分支
+            通过上面的方式合并以后 master分支到c8
+        情况二
+        c1 c2 c3 c4 c5 c6
+                 c7 c8 c9
+           master分支 在c6
+           test分支 在c9
+           还是git switch 和git merge  区别是你需要手动的去选择
+           （有时候可能也没有冲突 ab修改的不是同一个文件）
+
+           在合并的时候
+           <<<<head是当前的分支
+
+           >>>>update是准备合并的分支
+
+
+当切换分支以后 工作区的代码也会切换成为切换后分支的代码
+
+git 到github
+    git remote add origin https://github.com/lilichao/git-demo.git （这里的origin是自定义的）
+    # git remote add <remote name> <url>
+
+    git branch -M main
+    # 修改分支的名字的为main
+
+    git push -u origin main (origin是上面你定义的名字， main是你上面定义的分支)
+    # git push 将代码上传服务器上
+
+
+
+
+
