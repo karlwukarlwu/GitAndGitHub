@@ -1,6 +1,5 @@
-sdfsdf
+当对文件进行git add 以后
 
-sdfsdf
-123123
-12q3123
-123123
+重置文件
+git restore <filename> # 恢复文件
+git restore --staged <filename> # 取消暂存状态
